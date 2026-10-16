@@ -2,10 +2,11 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "YOUR_DOCKERHUB_USERNAME/event-management"
+        IMAGE_NAME = "rishitha1235/event-management"
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -14,8 +15,8 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
-                sh 'docker tag $IMAGE_NAME:$BUILD_NUMBER $IMAGE_NAME:latest'
+                bat 'docker build -t %IMAGE_NAME%:%BUILD_NUMBER% .'
+                bat 'docker tag %IMAGE_NAME%:%BUILD_NUMBER% %IMAGE_NAME%:latest'
             }
         }
 
@@ -26,17 +27,17 @@ pipeline {
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
-                    sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
-                    sh 'docker push $IMAGE_NAME:$BUILD_NUMBER'
-                    sh 'docker push $IMAGE_NAME:latest'
+                    bat 'docker login -u "%DOCKER_USER%" -p "%DOCKER_PASS%"'
+                    bat 'docker push %IMAGE_NAME%:%BUILD_NUMBER%'
+                    bat 'docker push %IMAGE_NAME%:latest'
                 }
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'docker rm -f event-management-app || true'
-                sh 'docker run -d --name event-management-app -p 8080:80 $IMAGE_NAME:latest'
+                bat 'docker rm -f event-management-app || exit /b 0'
+                bat 'docker run -d --name event-management-app -p 8080:80 %IMAGE_NAME%:latest'
             }
         }
     }
@@ -44,9 +45,6 @@ pipeline {
     post {
         success {
             echo 'Event Management application deployed successfully on port 8080.'
-        }
-        always {
-            sh 'docker logout || true'
         }
     }
 }
