@@ -1,0 +1,7 @@
+services:
+  event-app:
+    build: .
+    container_name: event-management-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
