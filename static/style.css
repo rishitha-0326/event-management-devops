@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7fb;
+    color: #202331;
+}
+
+nav {
+    background: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span,
+.hero span {
+    color: #635bff;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.hero {
+    margin: 40px auto;
+    max-width: 1100px;
+    padding: 80px 40px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #17182d, #34337c);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 15px 0;
+}
+
+.hero p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.tag {
+    color: #635bff;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero .tag {
+    color: #c8c6ff;
+}
+
+.btn,
+button {
+    display: inline-block;
+    background: #635bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.content {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.content h1,
+.content h2 {
+    margin: 10px 0 20px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.event-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.event-card .icon {
+    font-size: 40px;
+}
+
+.event-card p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.event-card button {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.registration {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub - Events</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Event<span>Hub</span></div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+        <a href="/registrations">Registrations</a>
+    </div>
+</nav>
+
+<section class="content">
+
+    <p class="tag">UPCOMING EVENTS</p>
+
+    <h1>Explore Events</h1>
+
+    <div class="event-grid">
+
+        <div class="event-card">
+            <div class="icon">💻</div>
+
+            <h2>Tech Hackathon 2026</h2>
+
+            <p>📅 25 October 2026</p>
+            <p>📍 College Auditorium</p>
+
+            <p>
+                Build innovative solutions with your team.
+            </p>
+
+            <button onclick="register('Tech Hackathon 2026')">
+                Register
+            </button>
+        </div>
+
+
+        <div class="event-card">
+            <div class="icon">🚀</div>
+
+            <h2>Annual Tech Fest</h2>
+
+            <p>📅 30 October 2026</p>
+            <p>📍 Main Block</p>
+
+            <p>
+                Workshops, talks and technology challenges.
+            </p>
+
+            <button onclick="register('Annual Tech Fest')">
+                Register
+            </button>
+        </div>
+
+
+        <div class="event-card">
+            <div class="icon">🎭</div>
+
+            <h2>Cultural Fest</h2>
+
+            <p>📅 5 November 2026</p>
+            <p>📍 College Ground</p>
+
+            <p>
+                Music, dance, art and cultural performances.
+            </p>
+
+            <button onclick="register('Cultural Fest')">
+                Register
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
