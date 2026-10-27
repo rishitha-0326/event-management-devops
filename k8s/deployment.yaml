@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-management
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: event-management
+  template:
+    metadata:
+      labels:
+        app: event-management
+    spec:
+      containers:
+        - name: event-management
+          image: rishitha1235/event-management:flask
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
